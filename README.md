@@ -75,7 +75,10 @@ Bilgisayar mühendisliği kapsamında geliştirilmiş eğitim ve portföy amaçl
 
 ## 📘 Sistem Kullanım Kitapçığı
 
-Boss Gym Bursa sisteminin kurulumu, üyelik işlemleri, PT randevuları, saha rezervasyonları, QR turnike ve yönetici panelinin kullanımı ayrıntılı olarak açıklanmıştır.
+Boss Gym Bursa sisteminin kurulumunu, üyelik işlemlerini, PT eğitimlerini, saha rezervasyonlarını, QR turnikeyi ve yönetici panelini kapsayan ayrıntılı kullanım rehberi.
 
-📂 [Kullanım Kitapçığını Görüntüle (PDF ve Word)](docs/)
+📕 [Kullanım Kitapçığını Görüntüle (PDF)](docs/Boss_Gym_Bursa_Kapsamli_Sistem_Kullanim_Kitapcik.pdf)
+
+📘 [Kullanım Kitapçığını İndir (Word)](docs/Boss_Gym_Bursa_Kapsamli_Sistem_Kullanim_Kitapcik.docx)
+  
   

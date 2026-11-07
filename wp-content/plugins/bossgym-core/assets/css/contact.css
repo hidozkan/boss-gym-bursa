@@ -1,0 +1,35 @@
+.bg-contact-form-section { width:min(100% - 2rem, 1000px); margin:clamp(2.5rem, 6vw, 5rem) auto; scroll-margin-top:120px; }
+.bg-contact-form-card { min-width:0; padding:clamp(1.25rem, 4vw, 2.75rem); border:1px solid rgba(229,160,0,.42); border-radius:14px; color:#f5f5f5; background:linear-gradient(145deg,#202020,#121212); box-shadow:0 18px 50px rgba(0,0,0,.22); }
+.bg-contact-form-eyebrow { margin:0 0 .45rem; color:#e5a000; font-size:.78rem; font-weight:800; letter-spacing:.14em; }
+.bg-contact-form-card h2 { margin:0 0 .65rem; color:#fff; font-size:clamp(1.65rem,3.2vw,2.35rem); line-height:1.2; }
+.bg-contact-form-intro { max-width:68ch; margin:0 0 1.5rem; color:#d2d2d2; line-height:1.65; }
+.bg-contact-form__grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.bg-contact-form__grid label { display:grid; gap:.45rem; min-width:0; color:#f5f5f5; font-weight:700; }
+.bg-contact-form__grid label span { display:block; }
+.bg-contact-form__full { grid-column:1 / -1; }
+.bg-contact-form__grid input,.bg-contact-form__grid textarea { box-sizing:border-box; width:100%; min-width:0; min-height:48px; margin:0; padding:.75rem .85rem; border:1px solid #888; border-radius:6px; color:#171717; background:#f5f5f5; font:inherit; line-height:1.45; }
+.bg-contact-form__grid textarea { min-height:150px; resize:vertical; }
+.bg-contact-form__grid input::placeholder,.bg-contact-form__grid textarea::placeholder { color:#626262; }
+.bg-contact-form__grid input:focus,.bg-contact-form__grid textarea:focus { border-color:#e5a000; outline:2px solid rgba(229,160,0,.28); outline-offset:1px; }
+.bg-contact-form__submit { min-height:48px; margin-top:1.15rem; padding:.75rem 1.4rem; border:1px solid #e5a000; border-radius:6px; color:#17130a; background:#e5a000; font:inherit; font-weight:800; cursor:pointer; transition:background-color .18s ease,transform .18s ease; }
+.bg-contact-form__submit:hover,.bg-contact-form__submit:focus-visible { background:#f2b625; transform:translateY(-1px); }
+.bg-contact-feedback { margin:0 0 1.15rem; padding:.9rem 1rem; border:1px solid; border-radius:6px; line-height:1.55; }
+.bg-contact-feedback--success { border-color:#57a773; color:#e1f6e8; background:#173622; }
+.bg-contact-feedback--warning { border-color:#d99a00; color:#fff0c2; background:#382b0d; }
+.bg-contact-feedback--error { border-color:#dc6b6b; color:#ffe0e0; background:#3d1818; }
+.bg-contact-form__trap { position:absolute!important; left:-10000px!important; width:1px!important; height:1px!important; overflow:hidden!important; }
+.bossgym-contact-admin-detail,.bossgym-contact-admin-settings { max-width:1000px; margin:0 0 20px; }
+.bossgym-contact-admin-message { margin:18px 0; padding:18px; border:1px solid #dcdcde; background:#fff; line-height:1.7; overflow-wrap:anywhere; }
+.bossgym-contact-admin-action { display:inline-block; margin:0 8px 10px 0; }
+.bossgym-contact-admin-settings form { display:flex; flex-wrap:wrap; align-items:end; gap:10px; }
+.bossgym-contact-admin-settings label { display:grid; gap:5px; min-width:min(100%,320px); color:#202124; font-weight:600; }
+.bossgym-contact-admin-settings input[type=email] { width:min(100%,380px); min-height:36px; color:#171717; background:#f5f5f5; }
+.bossgym-contact-admin-table { min-width:760px; }
+@media(max-width:640px) {
+  .bg-contact-form-section { width:calc(100% - 1.25rem); margin-block:2rem; }
+  .bg-contact-form-card { padding:1.15rem; }
+  .bg-contact-form__grid { grid-template-columns:minmax(0,1fr); gap:.85rem; }
+  .bg-contact-form__full { grid-column:auto; }
+  .bg-contact-form__submit { width:100%; }
+  .bossgym-contact-admin-settings form { align-items:stretch; }
+}

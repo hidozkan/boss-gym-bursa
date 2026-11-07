@@ -1,0 +1,35 @@
+# GitHub'da yayimlanmamasi gereken ozel dosyalar
+.env
+.env.*
+!.env.example
+wp-config.php
+wp-config-*.php
+*.sql
+*.sqlite
+*.db
+*.zip
+*.rar
+*.7z
+*.bak
+*.bak-*
+*.backup
+*.old
+*.log
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+.htpasswd
+# Gelistirme ve gereksiz dosyalar
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+.cache/
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backups/

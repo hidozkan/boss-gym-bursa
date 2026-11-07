@@ -1,0 +1,151 @@
+.bossgym-admin {
+    --bossgym-admin-gold: #d99a00;
+    --bossgym-admin-ink: #202124;
+    --bossgym-admin-muted: #646970;
+    --bossgym-admin-line: #dcdcde;
+    max-width: 1480px;
+    box-sizing: border-box;
+}
+
+.bossgym-admin *,
+.bossgym-admin *::before,
+.bossgym-admin *::after { box-sizing: border-box; }
+
+.bossgym-admin__header { margin: 12px 0 22px; padding: 20px 24px; border-left: 4px solid var(--bossgym-admin-gold); background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / 6%); }
+.bossgym-admin__header h1 { margin: 0 0 6px; color: var(--bossgym-admin-ink); font-size: 24px; line-height: 1.3; }
+.bossgym-admin__header p { margin: 0; color: var(--bossgym-admin-muted); font-size: 14px; line-height: 1.6; }
+.bossgym-admin__card { max-width: 900px; padding: 22px 24px; border: 1px solid var(--bossgym-admin-line); border-radius: 4px; background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / 4%); }
+.bossgym-admin__settings-form { display: grid; justify-items: start; gap: 14px; }
+.bossgym-admin__settings-form > label { display: flex; align-items: flex-start; gap: 9px; font-weight: 600; line-height: 1.5; }
+.bossgym-admin__settings-form > label input { margin-top: 3px; }
+.bossgym-admin__settings-form > p { max-width: 720px; margin: 0; color: var(--bossgym-admin-muted); line-height: 1.6; }
+
+.bossgym-admin__table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--bossgym-admin-line); background: #fff; }
+.bossgym-admin__table { width: 100%; min-width: 900px; border: 0; border-spacing: 0; }
+.bossgym-admin__table th { padding: 12px 10px; color: var(--bossgym-admin-ink); font-weight: 700; white-space: nowrap; }
+.bossgym-admin__table td { padding: 12px 10px; vertical-align: top; line-height: 1.5; }
+.bossgym-admin__table td small { display: inline-block; margin-top: 3px; color: var(--bossgym-admin-muted); overflow-wrap: anywhere; }
+.bossgym-admin__table--memberships th:nth-child(1) { width: 18%; }
+.bossgym-admin__table--memberships th:nth-child(2) { width: 13%; }
+.bossgym-admin__table--memberships th:nth-child(3) { width: 10%; }
+.bossgym-admin__table--memberships th:nth-child(4) { width: 15%; }
+.bossgym-admin__table--memberships th:nth-child(5) { width: 44%; }
+.bossgym-admin__table--appointments th:nth-child(1) { width: 18%; }
+.bossgym-admin__table--appointments th:nth-child(2) { width: 25%; }
+.bossgym-admin__table--appointments th:nth-child(3) { width: 17%; }
+.bossgym-admin__table--appointments th:nth-child(4) { width: 13%; }
+.bossgym-admin__table--appointments th:nth-child(5) { width: 27%; }
+
+.bossgym-admin__form { display: flex; flex-wrap: wrap; align-items: end; gap: 9px; min-width: 0; }
+.bossgym-admin__form select,
+.bossgym-admin__form input[type="date"] { max-width: 100%; min-width: 120px; }
+.bossgym-admin__form label { display: grid; gap: 4px; color: var(--bossgym-admin-muted); font-size: 12px; }
+.bossgym-admin__form .button { min-height: 32px; }
+.bossgym-admin__form--membership select:first-of-type { min-width: 142px; }
+.bossgym-admin__form--membership select[name="status"] { min-width: 130px; }
+.bossgym-admin__form--appointment select { min-width: 132px; }
+
+.bossgym-admin--meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; max-width: 1100px; padding: 4px 0 10px; }
+.bossgym-admin--meta .bossgym-admin__field { min-width: 0; margin: 10px 0; }
+.bossgym-admin--meta .bossgym-admin__field > label { display: grid; gap: 7px; min-width: 0; color: var(--bossgym-admin-ink); }
+.bossgym-admin--meta .bossgym-admin__field strong { line-height: 1.4; }
+.bossgym-admin--meta .bossgym-admin__field input,
+.bossgym-admin--meta .bossgym-admin__field select,
+.bossgym-admin--meta .bossgym-admin__field textarea { width: 100%; max-width: 100%; min-height: 36px; margin: 0; }
+.bossgym-admin--meta .bossgym-admin__field textarea { min-height: 112px; resize: vertical; }
+.bossgym-admin--meta .bossgym-admin__field .description { display: block; line-height: 1.5; }
+.bossgym-admin--meta .bgpt-media-pick { margin: 0 0 8px; }
+.bossgym-admin--meta .bgpt-admin-field:has(textarea) { grid-column: 1 / -1; }
+.bossgym-admin--meta .bgpt-admin-field:has(input[name="bgpt_photo"]) { grid-column: 1 / -1; }
+
+@media (max-width: 782px) {
+    .bossgym-admin { margin-right: 10px; }
+    .bossgym-admin__header { margin-top: 8px; padding: 16px; }
+    .bossgym-admin__card { padding: 16px; }
+    .bossgym-admin--meta { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .bossgym-admin--meta .bgpt-admin-field:has(textarea),
+    .bossgym-admin--meta .bgpt-admin-field:has(input[name="bgpt_photo"]) { grid-column: auto; }
+}
+
+@media (max-width: 480px) {
+    .bossgym-admin__header h1 { font-size: 21px; }
+    .bossgym-admin__form { align-items: stretch; }
+    .bossgym-admin__form select,
+    .bossgym-admin__form input[type="date"] { flex: 1 1 145px; min-width: 0; }
+    .bossgym-admin__form .button { flex: 1 1 auto; }
+}
+
+.bossgym-admin-overview-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+.bossgym-admin-overview-card { display:flex; flex-direction:column; min-width:0; min-height:185px; padding:18px; border:1px solid #dcdcde; border-top:3px solid #d99a00; border-radius:4px; color:#202124; background:#fff; text-decoration:none; box-shadow:0 1px 2px rgb(0 0 0 / 5%); transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease; }
+.bossgym-admin-overview-card:hover,.bossgym-admin-overview-card:focus-visible { border-color:#d99a00; color:#202124; box-shadow:0 7px 20px rgb(0 0 0 / 8%); transform:translateY(-2px); }
+.bossgym-admin-overview-card h2 { margin:8px 0; color:#202124; font-size:17px; line-height:1.35; }
+.bossgym-admin-overview-card p { margin:0 0 16px; color:#646970; line-height:1.55; }
+.bossgym-admin-overview-card__status { color:#59616b; font-size:12px; font-weight:700; }
+.bossgym-admin-overview-card__link { margin-top:auto; color:#735000; font-weight:700; }
+.bossgym-admin-overview-card--planned { border-top-color:#8c8f94; background:#f6f7f7; }
+.bossgym-admin-overview-card--planned .bossgym-admin-overview-card__status { color:#646970; }
+.bossgym-admin-planned-badge { display:inline-block; padding:6px 10px; border:1px solid #c3c4c7; border-radius:999px; color:#3c434a; background:#f6f7f7; font-size:12px; font-weight:700; }
+.bossgym-admin--planned .bossgym-admin__card p { max-width:760px; margin:14px 0 0; color:#50575e; line-height:1.65; }
+@media(max-width:1100px) { .bossgym-admin-overview-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .bossgym-admin-overview-grid { grid-template-columns:minmax(0,1fr); } .bossgym-admin-overview-card { min-height:0; } }
+
+.bossgym-admin--courts .bossgym-admin__header { margin-bottom:18px; }
+.bossgym-admin--courts .bossgym-admin__filters { display:flex; flex-wrap:wrap; align-items:end; gap:12px; margin:0 0 16px; padding:14px; border:1px solid #dcdcde; background:#fff; }
+.bossgym-admin--courts .bossgym-admin__filters label { display:grid; gap:5px; min-width:155px; color:#3c434a; font-weight:600; }
+.bossgym-admin--courts .bossgym-admin__filters input,
+.bossgym-admin--courts .bossgym-admin__filters select,
+.bossgym-admin--courts .bgc-admin-action select,
+.bgc-court-meta input:not([type=checkbox]),
+.bgc-court-meta select,
+.bgc-court-meta textarea { max-width:100%; min-height:36px; color:#171717; background:#f5f5f5; border:1px solid #777; border-radius:3px; }
+.bossgym-admin--courts .bossgym-admin__table-wrap { max-width:100%; overflow-x:auto; }
+.bossgym-admin__table--courts th:nth-child(1) { width:21%; }
+.bossgym-admin__table--courts th:nth-child(2) { width:19%; }
+.bossgym-admin__table--courts th:nth-child(3) { width:14%; }
+.bossgym-admin__table--courts th:nth-child(4) { width:18%; }
+.bossgym-admin__table--courts th:nth-child(5) { width:28%; }
+.bossgym-admin__table--referees th:nth-child(1) { width:18%; }
+.bossgym-admin__table--referees th:nth-child(2) { width:28%; }
+.bossgym-admin__table--referees th:nth-child(3) { width:18%; }
+.bossgym-admin__table--referees th:nth-child(4) { width:18%; }
+.bossgym-admin__table--referees th:nth-child(5) { width:18%; }
+.bgc-admin-status { display:inline-block; padding:4px 8px; border:1px solid #8c8f94; border-radius:999px; color:#3c434a; font-size:12px; font-weight:700; white-space:nowrap; }
+.bgc-admin-status--pending,.bgc-admin-status--requested,.bgc-admin-status--reviewing { border-color:#d99a00; color:#735000; background:#fff8e6; }
+.bgc-admin-status--approved { border-color:#4b8d5e; color:#1e6432; background:#effaf1; }
+.bgc-admin-status--cancelled,.bgc-admin-status--rejected { border-color:#bd5555; color:#8a2222; background:#fff2f2; }
+.bgc-admin-status--completed { border-color:#8c8f94; color:#3c434a; background:#f6f7f7; }
+.bgc-admin-action { margin-top:8px; }
+.bgc-admin-action select { min-width:125px; }
+.bgc-admin-note { display:block; max-width:38ch; margin-top:8px; color:#50575e; white-space:normal; overflow-wrap:anywhere; }
+.bossgym-admin--meta.bgc-court-meta { max-width:1140px; }
+.bgc-court-meta .bgc-hours-field,
+.bgc-court-meta .bgc-maintenance-field,
+.bgc-court-meta .bgc-image-field,
+.bgc-court-meta .bgc-active-field { grid-column:1/-1; }
+.bgc-court-meta .bgc-hours-table { max-width:760px; margin-top:8px; }
+.bgc-court-meta .bgc-hours-table th,
+.bgc-court-meta .bgc-hours-table td { vertical-align:middle; }
+.bgc-court-meta .bgc-hours-table input[type=time] { width:145px; }
+.bgc-court-meta .bgc-maintenance-field textarea { width:100%; max-width:850px; min-height:140px; font-family:monospace; }
+.bgc-court-meta .bgc-image-preview { display:flex; width:min(100%,420px); min-height:120px; align-items:center; justify-content:center; margin:8px 0; padding:8px; border:1px dashed #8c8f94; background:#f6f7f7; }
+.bgc-court-meta .bgc-image-preview img { display:block; width:100%; max-height:220px; object-fit:cover; }
+.bgc-court-meta .description { line-height:1.5; }
+@media(max-width:782px) {
+  .bossgym-admin--courts .bossgym-admin__filters { align-items:stretch; }
+  .bossgym-admin--courts .bossgym-admin__filters label { flex:1 1 100%; }
+  .bgc-court-meta .bgc-hours-table { min-width:620px; }
+  .bgc-court-meta .bgc-hours-field { overflow-x:auto; }
+}
+.bossgym-admin .bossgym-occupancy-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:20px 0; }
+.bossgym-admin .bossgym-occupancy-grid > * { display:block; padding:16px; border:1px solid rgba(229,160,0,.3); border-radius:10px; background:#1b1b1b; color:#fff; }
+.bossgym-admin #bgts-result[data-state="success"] { color:#177245; font-weight:700; }
+.bossgym-admin #bgts-result[data-state="error"] { color:#b32d2e; font-weight:700; }
+.bossgym-admin .bgts-member-code { display:block; overflow-wrap:anywhere; padding:12px; color:#171717; background:#f5f5f5; border-radius:8px; }
+/* Membership PT add-on pricing, scoped to the Boss Gym membership screen. */
+.bossgym-admin--memberships .bossgym-membership-fees{margin:0 0 24px}
+.bossgym-admin--memberships .bossgym-membership-fees__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:16px 0}
+.bossgym-admin--memberships .bossgym-membership-fees__grid label{display:grid;gap:7px;min-width:0;font-weight:700}
+.bossgym-admin--memberships .bossgym-membership-fees__grid .description{font-weight:400}
+.bossgym-admin--memberships .bossgym-membership-fees__grid input{width:100%;max-width:none;background:#fff;color:#171717}
+@media(max-width:900px){.bossgym-admin--memberships .bossgym-membership-fees__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.bossgym-admin--memberships .bossgym-membership-fees__grid{grid-template-columns:minmax(0,1fr)}}

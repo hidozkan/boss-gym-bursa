@@ -1,0 +1,353 @@
+/* Isolated optional accessibility controls. No default page styles are overridden. */
+.bossgym-accessibility-trigger {
+  display: inline-flex;
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .35rem;
+  border: 1px solid #e5a000;
+  border-radius: 50%;
+  color: #17130a;
+  background: #e5a000;
+  font: inherit;
+  cursor: pointer;
+}
+.bossgym-accessibility-trigger:hover,
+.bossgym-accessibility-trigger:focus-visible { color: #171717; background: #f2b625; }
+.bossgym-accessibility-trigger:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.bossgym-accessibility-trigger--fixed { position:fixed; z-index:800; right:calc(24px + env(safe-area-inset-right, 0px)); bottom:calc(24px + env(safe-area-inset-bottom, 0px)); border-radius:50%; box-shadow:0 5px 18px rgb(0 0 0 / .28); }
+.bossgym-accessibility-trigger--fixed svg { width:26px; height:26px; }
+.bossgym-accessibility-panel,
+.bossgym-accessibility-panel * { box-sizing: border-box; }
+.bossgym-accessibility-panel[hidden] { display: none; }
+.bossgym-accessibility-panel {
+  position: fixed;
+  z-index: 801;
+  right:calc(24px + env(safe-area-inset-right, 0px));
+  bottom:calc(90px + env(safe-area-inset-bottom, 0px));
+  width: min(370px, calc(100vw - 24px));
+  max-height: min(78vh, 640px);
+  max-height: min(78dvh, 640px);
+  overflow: auto;
+  padding: 1rem;
+  border: 1px solid #8a650d;
+  border-radius: 14px;
+  color: #f7f5f0;
+  background: #181818;
+  box-shadow: 0 18px 52px rgb(0 0 0 / .45);
+  font: 1rem/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  overscroll-behavior: contain;
+}
+.bossgym-accessibility-panel__head { display:flex; align-items:center; justify-content:space-between; gap:.75rem; }
+.bossgym-accessibility-panel h2 { margin:0; color:#fff; font-size:1.2rem; line-height:1.25; }
+.bossgym-accessibility-panel .bossgym-accessibility-help { margin:.4rem 0 .85rem; color:#dedede; font-size:.9rem; }
+.bossgym-accessibility-panel__head button { min-width:40px; min-height:40px; font-size:1.4rem; }
+.bossgym-accessibility-group { min-width:0; margin:.65rem 0; padding:.6rem 0 0; border:0; border-top:1px solid #424242; }
+.bossgym-accessibility-group legend,
+.bossgym-accessibility-label { display:block; padding:0; color:#f2b625; font-size:.9rem; font-weight:700; }
+.bossgym-accessibility-controls { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.45rem; }
+.bossgym-accessibility-panel button { min-height:40px; padding:.45rem .7rem; border:1px solid #797979; border-radius:7px; color:#fff; background:#292929; font:inherit; font-size:.9rem; cursor:pointer; }
+.bossgym-accessibility-panel button:hover:not(:disabled),
+.bossgym-accessibility-panel button[aria-pressed="true"] { border-color:#e5a000; color:#17130a; background:#e5a000; }
+.bossgym-accessibility-panel button:focus-visible { outline:3px solid #ffd36b; outline-offset:2px; }
+.bossgym-accessibility-panel button:disabled { opacity:.55; cursor:not-allowed; }
+.bossgym-accessibility-panel .bossgym-accessibility-reset { width:100%; margin-top:.6rem; border-color:#e5a000; }
+.bossgym-accessibility-speech-status { min-height:1.4em; margin:.45rem 0 0; color:#e7e1d3; font-size:.875rem; }
+@media (max-width:1024px) {
+  .bossgym-accessibility-trigger--fixed { right:calc(16px + env(safe-area-inset-right, 0px)); bottom:calc(16px + env(safe-area-inset-bottom, 0px)); }
+  .bossgym-accessibility-panel { right:calc(16px + env(safe-area-inset-right, 0px)); bottom:calc(82px + env(safe-area-inset-bottom, 0px)); width:min(370px, calc(100vw - 32px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px))); max-height:min(78vh, 640px); }
+}
+@media (prefers-reduced-motion:reduce) { .bossgym-accessibility-panel, .bossgym-accessibility-panel * { scroll-behavior:auto; transition:none; animation:none; } }
+
+/* Optional user-selected light palette. Dark mode keeps its original component styles. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) { color-scheme:light; --bg-black:#f2f1ed; --bg-anthracite:#e8e6e0; --bg-panel:#fff; --bg-copy:#3f4247; --bg-muted:#5c6066; --bg-surface:#f2f1ed; color:#202328; background:#f2f1ed; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body,html.bg-a11y-light:not(.bg-a11y-high-contrast) #wrapper,html.bg-a11y-light:not(.bg-a11y-high-contrast) #inner-wrap,html.bg-a11y-light:not(.bg-a11y-high-contrast) #main,html.bg-a11y-light:not(.bg-a11y-high-contrast) #primary,html.bg-a11y-light:not(.bg-a11y-high-contrast) #content,html.bg-a11y-light:not(.bg-a11y-high-contrast) #page,html.bg-a11y-light:not(.bg-a11y-high-contrast) .content-container,html.bg-a11y-light:not(.bg-a11y-high-contrast) .content-area,html.bg-a11y-light:not(.bg-a11y-high-contrast) .site-main,html.bg-a11y-light:not(.bg-a11y-high-contrast) article.entry,html.bg-a11y-light:not(.bg-a11y-high-contrast) .entry-content-wrap,html.bg-a11y-light:not(.bg-a11y-high-contrast) .entry-content.single-content { color:#202328; background-color:#f2f1ed; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bossgym-home,.bossgym-subpage,.bgm-wrap,.bgpt-panel,.bgpt-trainer-grid,.bgc-courts,.bgc-booking,.bgc-member-card,.bg-fg-gallery,.bg-contact-form-section) { color:#202328; background-color:#f2f1ed; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bossgym-home,.bossgym-subpage,.bgm-wrap,.bgpt-panel,.bgpt-trainer-grid,.bgc-courts,.bgc-booking,.bgc-member-card,.bg-fg-gallery,.bg-contact-form-section) :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,label,small,strong,em,span,th,td,blockquote,cite,figcaption) { color:#292d32; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bg-eyebrow,.bgm-eyebrow,.bgpt-kicker,.bgpt-demo-label,.bgc-eyebrow,.bg-contact-form-eyebrow) { color:#765000; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bossgym-home a,.bossgym-subpage a,.bgm-wrap a,.bgpt-panel a,.bgc-booking a,.bg-fg-gallery a,.bg-contact-form-card a) { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bossgym-home .bg-section,.bossgym-home .bg-about,.bossgym-home .bg-section--dark,.bossgym-home .bg-coach,.bossgym-home .bg-smart,.bossgym-home .bg-contact,.bossgym-subpage .bg-page-section) { color:#202328; background:#f2f1ed; }
+/* Preserve each subpage's existing hero photo in light mode; soften it with a cream overlay. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-subhero { color:#24272b; background-color:#f2f1ed; background-size:cover; background-position:center 52%; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-subhero--gym { background-image:linear-gradient(90deg,rgba(247,246,242,.88) 0%,rgba(247,246,242,.76) 68%,rgba(247,246,242,.58) 100%),linear-gradient(0deg,rgba(247,246,242,.16),transparent 58%),url("../images/home/hero-gym.webp"); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-subhero--pt { background-image:linear-gradient(90deg,rgba(247,246,242,.88) 0%,rgba(247,246,242,.76) 68%,rgba(247,246,242,.58) 100%),linear-gradient(0deg,rgba(247,246,242,.16),transparent 58%),url("../images/home/pt-bireysel.webp"); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-subhero--court { background-image:linear-gradient(90deg,rgba(247,246,242,.88) 0%,rgba(247,246,242,.76) 68%,rgba(247,246,242,.58) 100%),linear-gradient(0deg,rgba(247,246,242,.16),transparent 58%),url("../images/home/basketbol-sahasi.webp"); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-subhero--amenities { background-image:linear-gradient(90deg,rgba(247,246,242,.88) 0%,rgba(247,246,242,.76) 68%,rgba(247,246,242,.58) 100%),linear-gradient(0deg,rgba(247,246,242,.16),transparent 58%),url("../images/home/tesis-kafe.webp"); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-subhero--contact { background-image:linear-gradient(90deg,rgba(247,246,242,.88) 0%,rgba(247,246,242,.76) 68%,rgba(247,246,242,.58) 100%),linear-gradient(0deg,rgba(247,246,242,.16),transparent 58%),url("../images/home/tesis-otopark.webp"); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-subhero :is(.bg-subhero__title,.bg-subhero__lead,h1,h2,p) { color:#24272b; text-shadow:0 1px 2px rgba(255,255,255,.28); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-subhero .bg-eyebrow { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-hero { color:#202328; background-color:#f2f1ed; background-image:linear-gradient(90deg,rgba(247,246,242,.94) 0%,rgba(247,246,242,.84) 46%,rgba(247,246,242,.58) 100%),linear-gradient(0deg,rgba(247,246,242,.32),transparent 55%),url("../images/home/hero-gym.webp"); background-size:cover; background-position:center 54%; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-hero :is(h1,h2,h3,p,.bg-eyebrow) { color:#292d32; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-hero__title span:last-child { color:#765000; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-hero .bg-button-outline .wp-block-button__link { color:#292d32; border-color:#77736b; background:transparent; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bossgym-home,.bossgym-subpage) :is(.bg-card,.bg-card--dark,.bg-demo-panel,.bg-coach>p:last-child,.bg-price-card,.bg-trainer-card) { color:#292d32; border-color:#d5d2ca; background:#fff; box-shadow:0 8px 24px rgb(25 27 30 / .07); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bossgym-home,.bossgym-subpage) :is(.bg-card,.bg-demo-panel,.bg-price-card,.bg-trainer-card) :is(h2,h3,h4,p,li,small,strong,span) { color:#292d32; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bossgym-home,.bossgym-subpage) :is(.bg-card__link a,.bg-card a,.bg-price-card a,.bg-trainer-card a) { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-card,.bgm-info-grid>div,.bgpt-card,.bgpt-package-card,.bgpt-weekly-wrap,.bgpt-weekly,.bgpt-weekly-day,.bgpt-weekly-program,.bgc-court-card,.bgc-booking-summary,.bgc-referee-choice,.bgc-member-card,.bg-contact-form-card,.bg-fg-dialog) { color:#292d32; border-color:#d5d2ca; background:#fff; box-shadow:0 8px 24px rgb(25 27 30 / .06); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-card,.bgm-info-grid>div,.bgpt-card,.bgpt-package-card,.bgpt-weekly-wrap,.bgpt-weekly,.bgpt-weekly-day,.bgpt-weekly-program,.bgc-court-card,.bgc-booking-summary,.bgc-referee-choice,.bgc-member-card,.bg-contact-form-card,.bg-fg-dialog) :is(h1,h2,h3,h4,p,li,span,small,strong,label,legend,th,td) { color:#292d32; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-wrap,.bgm-dashboard,.bgpt-panel,.bgc-booking,.bg-contact-form-card) :is(input:not([type=checkbox]),select,textarea),html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-wrap,.bgm-dashboard,.bgpt-panel,.bgc-booking,.bg-contact-form-card) select option { color:#202328; border-color:#85827b; background-color:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-wrap,.bgm-dashboard,.bgpt-panel,.bgc-booking,.bg-contact-form-card) :is(input,select,textarea):focus { border-color:#9a6900; outline-color:#9a6900; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-table,.bgpt-weekly,.bgc-table) { color:#292d32; background:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-table,.bgpt-weekly,.bgc-table) th { color:#33373c; border-color:#d5d2ca; background:#e8e6e0; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-table,.bgpt-weekly,.bgc-table) td { color:#292d32; border-color:#dedbd4; background:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-pending,.bgm-price-breakdown,.bgc-note,.bgpt-notice,.bgpt-weekly-empty) { color:#34302a; border-color:#d6b766; background:#fff8e6; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-slot--available,.bgc-slot--available) { color:#14532d; border-color:#348454; background:#e5f4e9; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-slot--full,.bgc-slot--full) { color:#842626; border-color:#b64d4d; background:#fbeaea; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-slot--past,.bgpt-slot--closed,.bgc-slot--past,.bgc-slot--closed) { color:#4b5057; border-color:#a9abb0; background:#e8e9eb; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-slot,.bgc-slot).is-selected { color:#17130a; border-color:#9a6900; background:#f2bd42; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-status--pending,.bgc-member-status--pending) { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-status--approved,.bgc-member-status--approved) { color:#17653a; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgpt-status--cancelled,.bgc-member-status--cancelled) { color:#8b2424; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-wrap { --bgm-gold:#765000; --bgm-muted:#555a60; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-price-breakdown strong,.bgpt-package-card strong,.bgpt-card strong,.bgpt-weekly-program strong,.bgpt-weekly-day strong,.bgc-court-card__price,.bgc-court-card__price small,.bgm-status,.bgm-tag) { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-trainer-details>summary { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-button--outline,.bgpt-link,.bgpt-panel a,.bgc-booking a) { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-button--outline { border-color:#9a6900; background:transparent; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-wrap,.bgpt-panel,.bgc-booking,.bg-contact-form-card) :is(input,select,textarea)::placeholder { color:#5c6066; opacity:1; }
+/* Light surfaces for image-led home sections that retain dark backgrounds in the brand theme. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home :is(.bg-about,.bg-section--dark,.bg-pt,.bg-coach,.bg-facilities,.bg-contact) { color:#24272b; background:#f2f1ed; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home :is(.bg-about,.bg-section--dark,.bg-pt,.bg-coach,.bg-facilities,.bg-contact) :is(h1,h2,h3,h4,p,li,small) { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home :is(.bg-about-photo,.bg-contact-photo) { background:transparent; }
+/* Kadence footer and the shared CTA band follow the optional light palette. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .site-footer-wrap,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .site-footer-row-container,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .site-footer-row-container-inner,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .site-footer-section { color:#292d32; background:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #masthead,html.bg-a11y-light:not(.bg-a11y-high-contrast) #masthead .site-header-row-container-inner,html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon,html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .site-footer-row-container-inner { color:#292d32; border-color:#d5d2ca; background:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #masthead :is(a,.menu-toggle-open,.menu-toggle-close),html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon :is(p,span,small,strong) { color:#292d32; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #masthead .main-navigation .primary-menu-container>ul>li>a { color:#292d32; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #masthead .main-navigation .primary-menu-container>ul>li>a:hover,html.bg-a11y-light:not(.bg-a11y-high-contrast) #masthead .main-navigation .primary-menu-container>ul>li.current-menu-item>a { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon a { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .bossgym-footer-cta { box-sizing:border-box; width:100%; max-width:none; color:#292d32; border-block:1px solid #d5d2ca; background:#f2f1ed; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .bossgym-footer-cta__link:not(.bossgym-footer-cta__link--primary) { color:#292d32; border-color:#b7b3a8; background:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .bossgym-footer-cta__link--primary { color:#17130a; border-color:#9a6900; background:#e5a000; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .bossgym-footer-cta__link:not(.bossgym-footer-cta__link--primary):is(:hover,:focus-visible) { color:#17130a; border-color:#9a6900; background:#f2b625; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .bossgym-footer-cta__link--primary:is(:hover,:focus-visible) { color:#17130a; border-color:#9a6900; background:#f2b625; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon .bossgym-footer-copyright { color:#292d32; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #colophon a:hover { color:#292d32; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-button-outline .wp-block-button__link { color:#24272b; border-color:#77736b; background:rgba(255,255,255,.9); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-subpage .bg-button-outline .wp-block-button__link:is(:hover,:focus-visible) { color:#17130a; border-color:#9a6900; background:#f2b625; }html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-accessibility-trigger--fixed { color:#17130a; border-color:#9a6900; background:#e5a000; }
+html.bg-a11y-high-contrast .bossgym-accessibility-trigger--fixed { color:#000; border:2px solid #fff; background:#ff0; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #masthead .mobile-navigation ul li a { color:#292d32; background:#f2f1ed; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) #masthead .mobile-navigation ul li a:hover { color:#704b00; background:#e8e6e0; }
+html.bg-a11y-light .bossgym-accessibility-panel { color:#f7f5f0; background:#181818; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-demo-mini,html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-contact-details { color:#292d32; border-color:#d5d2ca; background:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-demo-mini h4,html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-demo-note,html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-demo-status { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-tag { color:#704b00; border-color:#d6b766; background:#fff2cc; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-notice--success,.bgc-notice--success,.bg-contact-feedback--success) { color:#14532d; border-color:#348454; background:#e5f4e9; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgm-notice--error,.bgc-notice--error,.bg-contact-feedback--error) { color:#842626; border-color:#b64d4d; background:#fbeaea; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) :is(.bgc-notice--warning,.bg-contact-feedback--warning) { color:#704b00; border-color:#d6b766; background:#fff2cc; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-notice--success { color:#14532d; border-color:#348454; background:#e5f4e9; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-notice--error { color:#842626; border-color:#b64d4d; background:#fbeaea; }
+/* Existing brand declarations use !important for these labels; override them only in the optional light theme. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-button-outline .wp-block-button__link { color:#292d32 !important; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-price { color:#704b00 !important; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-disclaimer { color:#34302a !important; background:#fff8e6; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-demo-line { color:#34302a !important; }
+/* Optional user-selected high-contrast palette. */
+html.bg-a11y-high-contrast body,
+html.bg-a11y-high-contrast body.home .entry-content-wrap,
+html.bg-a11y-high-contrast .bossgym-home,
+html.bg-a11y-high-contrast .bossgym-subpage,
+html.bg-a11y-high-contrast .bgm-wrap,
+html.bg-a11y-high-contrast .bgpt-panel,
+html.bg-a11y-high-contrast .bgpt-trainer-grid,
+html.bg-a11y-high-contrast .bgc-courts,
+html.bg-a11y-high-contrast .bgc-booking,
+html.bg-a11y-high-contrast .bg-fg-gallery,
+html.bg-a11y-high-contrast .bg-contact-form-section { color:#fff; background-color:#000; }
+html.bg-a11y-high-contrast :is(.bossgym-home,.bossgym-subpage,.bgm-wrap,.bgpt-panel,.bgpt-trainer-grid,.bgc-courts,.bgc-booking,.bg-fg-gallery,.bg-contact-form-section) :is(p,li,dd,dt,th,td,label,small,strong,em,h1,h2,h3,h4) { color:#fff; }
+html.bg-a11y-high-contrast :is(.bossgym-home,.bossgym-subpage,.bgm-wrap,.bgpt-panel,.bgpt-trainer-grid,.bgc-courts,.bgc-booking,.bg-fg-gallery,.bg-contact-form-section) a { color:#ff0; text-decoration:underline; }
+html.bg-a11y-high-contrast :is(.bossgym-home,.bossgym-subpage,.bgm-wrap,.bgpt-panel,.bgpt-trainer-grid,.bgc-courts,.bgc-booking,.bg-fg-gallery,.bg-contact-form-section) :is(.bg-card,.bgm-card,.bgpt-card,.bgc-court-card,.bg-contact-form-card) { border-color:#fff; color:#fff; background:#000; }
+html.bg-a11y-high-contrast :is(.bossgym-home,.bossgym-subpage,.bgm-wrap,.bgpt-panel,.bgpt-trainer-grid,.bgc-courts,.bgc-booking,.bg-fg-gallery,.bg-contact-form-section) :is(button,input,select,textarea) { border:2px solid #fff; color:#fff; background:#000; }
+html.bg-a11y-high-contrast :is(.bossgym-home,.bossgym-subpage,.bgm-wrap,.bgpt-panel,.bgc-courts,.bgc-booking) :is(button[type="submit"],.bgc-slot.is-selected,.bgpt-slot.is-selected) { color:#000; background:#ff0; }
+html.bg-a11y-high-contrast #masthead,html.bg-a11y-high-contrast #colophon { color:#fff; background:#000; }
+html.bg-a11y-high-contrast .bossgym-accessibility-panel { color:#fff; background:#000; }
+
+/* Facility cards use their own dark component surface; restyle only their text panels in light mode. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bg-fg-gallery .bg-fg-card {
+  color:#292d32;
+  border-color:#d5d2ca;
+  background:#fff;
+  box-shadow:0 8px 24px rgb(25 27 30 / .07);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bg-fg-gallery .bg-fg-card:hover,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bg-fg-gallery .bg-fg-card:focus-visible {
+  border-color:#9a6900;
+  box-shadow:0 12px 28px rgb(25 27 30 / .12);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bg-fg-gallery .bg-fg-card__body {
+  color:#292d32;
+  background:#fff;
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bg-fg-gallery .bg-fg-card__body strong { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bg-fg-gallery .bg-fg-card__body>span { color:#4b5057; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bg-fg-gallery .bg-fg-card__body em { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bg-fg-dialog .bg-fg-view figcaption { color:#fff; background:rgba(10,10,10,.9); }
+/* Homepage PT choice cards: light palette only. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-pt-select-card {
+  color:#24272b;
+  border-color:#d5d2ca;
+  background:#fff;
+  box-shadow:0 8px 24px rgb(25 27 30 / .07);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-pt-select-card:hover,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-pt-select-card:focus-within {
+  border-color:#9a6900;
+  box-shadow:0 12px 28px rgb(25 27 30 / .12);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-pt-select-card h3 { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-pt-select-card p { color:#444; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-pt-select-card .bg-pt-card-link { background:transparent; }
+/* PT booking panel: replace its dark gradient only in the optional light palette. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel {
+  color:#24272b;
+  border-color:#d5d2ca;
+  background:#fff;
+  box-shadow:0 12px 32px rgb(25 27 30 / .08);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel h2 { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel :is(.bgpt-kicker,.bgpt-demo-label) { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel>p,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-fine,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-field-help,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-schedule-note { color:#444; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-package-card {
+  color:#24272b;
+  border-color:#d5d2ca;
+  background:#fff;
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-package-card :is(h3,p) { color:#444; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-package-card strong { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-form label { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-form :is(input,select,textarea) { color:#202328; border-color:#85827b; background:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-form select option { color:#171717; background:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-form :is(input,select,textarea)::placeholder { color:#5c6066; opacity:1; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-form :is(input,select,textarea):focus-visible { border-color:#9a6900; outline-color:#9a6900; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-link,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel a { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel a:hover { color:#513700; }
+
+/* Contact details and opening hours are dark surfaces in the brand theme. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-22 .bg-contact-hours,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-22 .bg-contact-info-card {
+  color:#24272b;
+  border-color:#d5d2ca;
+  background:#fff;
+  box-shadow:0 8px 24px rgb(25 27 30 / .06);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-22 :is(.bg-contact-hours,.bg-contact-info-card) h3 { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-22 :is(.bg-contact-hours,.bg-contact-info-card) :is(p,strong) { color:#444; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-22 .bg-contact-info-card a { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-22 .bg-contact-info-card a:hover { color:#513700; }
+
+/* Keep the hero photo while using a lighter, high-contrast overlay for the light palette. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-hero :is(.bg-eyebrow,.bg-hero__title,.bg-hero__lead) {
+  color:#24272b;
+  text-shadow:0 1px 2px rgba(255,255,255,.42);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-hero__title span:last-child { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-hero .bg-button-gold .wp-block-button__link { color:#17130a; background:#e5a000; border-color:#9a6900; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bossgym-home .bg-hero .bg-button-outline .wp-block-button__link { color:#24272b; border-color:#66625a; background:rgba(255,255,255,.82); }
+/* PT Education page choice cards: light-mode surface and text only. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-17 .bg-pt-select-card {
+  color:#24272b;
+  border-color:#d5d2ca;
+  background:#fff;
+  box-shadow:0 8px 24px rgb(25 27 30 / .07);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-17 .bg-pt-select-card:hover,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-17 .bg-pt-select-card:focus-within {
+  border-color:#9a6900;
+  box-shadow:0 12px 28px rgb(25 27 30 / .12);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-17 .bg-pt-select-card h3 { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) body.page-id-17 .bg-pt-select-card p { color:#444; }
+/* Court booking form: light-mode surface and controls, without changing booking behavior. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking {
+  color:#24272b;
+  border-color:#d5d2ca;
+  background:#fff;
+  box-shadow:0 12px 32px rgb(25 27 30 / .08);
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking h2 { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking .bgc-eyebrow { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking>p:not(.bgc-note),
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking .bgc-booking-form small { color:#444; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking .bgc-note {
+  color:#34302a!important;
+  border-color:#d6b766;
+  background:#fff8e6;
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking-form label { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking-form :is(input:not([type=checkbox]),select,textarea) {
+  color:#202328;
+  border-color:#85827b;
+  background:#fff;
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking-form select option { color:#171717; background:#fff; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking-form select:disabled { color:#575757; background:#e7e7e7; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking-form :is(input,select,textarea)::placeholder { color:#5c6066; opacity:1; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking-form :is(input,select,textarea):focus-visible { border-color:#9a6900; outline-color:#9a6900; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-referee-choice {
+  color:#24272b;
+  border-color:#d5d2ca;
+  background:#fff;
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-referee-choice legend { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-referee-choice label { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-referee-choice p { color:#444; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgc-booking-summary {
+  color:#292d32;
+  border-color:#d5d2ca;
+  background:#f2f1ed;
+}
+/* Member occupancy card: optional light palette, without affecting dark mode. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy { color:#24272b; border-color:#d5d2ca; background:#fff; box-shadow:0 8px 24px rgb(25 27 30 / .06); }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__header h2 { color:#24272b; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__demo-note { color:#444; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__status { color:#444; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__status.is-error { color:#842626; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__stat { color:#24272b; border-color:#d5d2ca; background:#f2f1ed; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__stat>span { color:#444; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__stat strong,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__progress-wrap>span { color:#704b00; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__stat small { color:#555a60; }
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgm-dashboard .bgm-occupancy__progress { accent-color:#e5a000; }
+html.bg-a11y-high-contrast .bgm-dashboard .bgm-occupancy__stat { color:#fff; border:2px solid #fff; background:#000; }
+html.bg-a11y-high-contrast .bgm-dashboard .bgm-occupancy__stat :is(span,strong,small) { color:#fff; }
+/* Keep the PT date picker dark even when the optional light palette is active. */
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date:is(:hover,:active,:valid,:invalid) {
+  color:#fff;
+  -webkit-text-fill-color:#fff;
+  color-scheme:dark;
+  accent-color:#e5a000;
+  border-color:#777;
+  background-color:#000;
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date:focus,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date:focus-visible {
+  color:#fff;
+  -webkit-text-fill-color:#fff;
+  border-color:#e5a000;
+  background-color:#000;
+  outline:none;
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date::-webkit-calendar-picker-indicator {
+  filter:brightness(0) invert(1);
+  opacity:1;
+}
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date::-webkit-datetime-edit,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date::-webkit-datetime-edit-fields-wrapper,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date::-webkit-datetime-edit-text,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date::-webkit-datetime-edit-month-field,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date::-webkit-datetime-edit-day-field,
+html.bg-a11y-light:not(.bg-a11y-high-contrast) .bgpt-panel .bgpt-form input.bgpt-date::-webkit-datetime-edit-year-field {
+  color:#fff;
+  -webkit-text-fill-color:#fff;
+}

@@ -1,0 +1,141 @@
+/* Üye paneli stilleri; WordPress yönetim arayüzüne yüklenmez. */
+.bgm-dashboard {
+    width: min(100% - 32px, 1240px);
+    min-width: 0;
+}
+
+.bgm-dashboard > *,
+.bgm-dashboard-grid > * { min-width: 0; }
+
+.bgm-dashboard > .bgm-card { margin: 0 0 22px; }
+
+.bgm-dashboard .bgm-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 18px;
+    margin: 0 0 22px;
+}
+
+.bgm-dashboard-grid > .bgm-dashboard-pt { grid-column: 1 / -1; }
+.bgm-dashboard-grid > .bgm-dashboard-card { height: auto; min-height: 0; margin: 0; }
+.bgm-dashboard .bgm-info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.bgm-dashboard .bgm-info-grid > div { min-width: 0; overflow-wrap: anywhere; }
+.bgm-dashboard .bgm-info-grid strong { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
+.bgm-dashboard .bgm-pending { margin: 18px 0 0; line-height: 1.6; overflow-wrap: anywhere; }
+
+.bgm-dashboard .bgts-member-card { text-align: center; }
+.bgm-dashboard .bgts-member-qr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 340px);
+    min-height: 280px;
+    margin: 18px auto;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #171717;
+    background: #fff;
+    border: 3px solid #e5a000;
+    border-radius: 12px;
+}
+.bgm-dashboard .bgts-member-qr svg { display: block; width: min(100%, 320px); height: auto; shape-rendering: crispEdges; }
+.bgm-dashboard .bgts-membership-validity { line-height: 1.8; }
+.bgm-dashboard .bgts-member-code-details { margin: 14px 0; text-align: left; }
+.bgm-dashboard .bgts-member-code-details summary { cursor: pointer; color: #e5a000; }
+.bgm-dashboard .bgts-member-code { display: block; margin-top: 8px; overflow-wrap: anywhere; color: #171717; background: #f5f5f5; }
+
+/* Form kontrolleri açık zeminde okunur kalır; tarayıcı açılır menüsü de dahil. */
+.bgm-dashboard input:not([type="checkbox"]),
+.bgm-dashboard select,
+.bgm-dashboard textarea,
+.bgm-dashboard .bgpt-form input,
+.bgm-dashboard .bgpt-form select,
+.bgm-dashboard .bgpt-form textarea {
+    color: #171717;
+    background-color: #f5f5f5;
+    border-color: #777;
+}
+
+.bgm-dashboard input::placeholder,
+.bgm-dashboard textarea::placeholder { color: #666; opacity: 1; }
+.bgm-dashboard select option { color: #111; background-color: #fff; }
+.bgm-dashboard input:focus,
+.bgm-dashboard select:focus,
+.bgm-dashboard textarea:focus { border-color: #e5a000; outline: 2px solid #e5a000; outline-offset: 1px; }
+.bgm-dashboard .bgm-notice--error { color: #fff; font-weight: 650; }
+.bgm-dashboard .bgm-notice--success { color: #fff; }
+
+/* PT tablosunun taşması yalnızca kendi kaydırma alanında kalır. */
+.bgm-dashboard .bgpt-panel {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: clamp(1rem, 2.5vw, 1.6rem);
+    box-sizing: border-box;
+}
+
+.bgm-dashboard .bgpt-table-wrap {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+}
+
+.bgm-dashboard .bgpt-table { width: 100%; min-width: 680px; table-layout: fixed; }
+.bgm-dashboard .bgpt-table th,
+.bgm-dashboard .bgpt-table td { vertical-align: top; overflow-wrap: anywhere; word-break: normal; }
+.bgm-dashboard .bgpt-table th { white-space: normal; line-height: 1.4; }
+.bgm-dashboard .bgpt-table th:nth-child(1) { width: 19%; }
+.bgm-dashboard .bgpt-table th:nth-child(2) { width: 20%; }
+.bgm-dashboard .bgpt-table th:nth-child(3) { width: 27%; }
+.bgm-dashboard .bgpt-table th:nth-child(4) { width: 14%; }
+.bgm-dashboard .bgpt-table th:nth-child(5) { width: 20%; }
+.bgm-dashboard .bgpt-panel .bgpt-status { display: inline-block; line-height: 1.4; }
+.bgm-dashboard .bgpt-panel select,
+.bgm-dashboard .bgpt-panel input,
+.bgm-dashboard .bgpt-panel textarea { color: #171717; background-color: #f5f5f5; border-color: #777; }
+.bgm-dashboard .bgpt-panel select option { color: #111; background-color: #fff; }
+.bgm-dashboard .bgpt-panel select:focus,
+.bgm-dashboard .bgpt-panel input:focus,
+.bgm-dashboard .bgpt-panel textarea:focus { border-color: #e5a000; outline: 2px solid #e5a000; outline-offset: 1px; }
+
+@media (max-width: 900px) {
+    .bgm-dashboard .bgm-info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bgm-dashboard .bgm-dashboard-grid { grid-template-columns: minmax(0, 1fr); }
+    .bgm-dashboard-grid > .bgm-dashboard-pt { grid-column: auto; }
+}
+
+@media (max-width: 760px) {
+    .bgm-dashboard { width: auto; max-width: 100%; margin: 20px 12px; padding: 18px; }
+    .bgm-dashboard .bgm-info-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Member-facing live occupancy card (QR record based demo). */
+.bgm-dashboard .bgm-occupancy { margin:0 0 22px; padding:clamp(18px,3vw,30px); color:#f7f5ef; border-color:rgba(229,160,0,.34); background:linear-gradient(145deg,#1d1d1d,#151515); }
+.bgm-dashboard .bgm-occupancy__header { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; margin-bottom:14px; }
+.bgm-dashboard .bgm-occupancy__header h2 { margin-bottom:0; }
+.bgm-dashboard .bgm-occupancy__demo-note { max-width:360px; margin:0; color:#c6c3bb; font-size:.88rem; line-height:1.5; }
+.bgm-dashboard .bgm-occupancy__status { min-height:1.5em; margin:0 0 14px; color:#d8d5cc; font-size:.9rem; }
+.bgm-dashboard .bgm-occupancy__status.is-error { color:#ffb4b4; }
+.bgm-dashboard .bgm-occupancy__grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; }
+.bgm-dashboard .bgm-occupancy [hidden] { display:none; }
+.bgm-dashboard .bgm-occupancy__stat { display:grid; grid-template-columns:1fr auto; align-items:center; gap:4px 8px; min-width:0; padding:14px 12px; border:1px solid #414141; border-radius:10px; color:#f7f5ef; background:#252525; }
+.bgm-dashboard .bgm-occupancy__stat>span { grid-column:1/-1; color:#d1cec6; font-size:.82rem; font-weight:650; line-height:1.35; }
+.bgm-dashboard .bgm-occupancy__stat strong { color:#f2b625; font-size:clamp(1.35rem,2.5vw,1.8rem); font-variant-numeric:tabular-nums; line-height:1.15; }
+.bgm-dashboard .bgm-occupancy__stat small { color:#bdb9b0; font-size:.75rem; text-align:right; }
+.bgm-dashboard .bgm-occupancy__progress-wrap { display:flex; align-items:center; gap:12px; margin-top:18px; }
+.bgm-dashboard .bgm-occupancy__progress { display:block; width:100%; height:14px; overflow:hidden; accent-color:#e5a000; }
+.bgm-dashboard .bgm-occupancy__progress-label,
+.bgm-dashboard .bgm-occupancy__progress-wrap>span { min-width:4.5ch; color:#f2b625; font-weight:800; text-align:right; font-variant-numeric:tabular-nums; }
+@media (max-width:1024px) {
+  .bgm-dashboard .bgm-occupancy__grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media (max-width:600px) {
+  .bgm-dashboard .bgm-occupancy__header { flex-direction:column; gap:8px; }
+  .bgm-dashboard .bgm-occupancy__demo-note { max-width:none; }
+  .bgm-dashboard .bgm-occupancy__grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+  .bgm-dashboard .bgm-occupancy__stat { padding:12px 10px; }
+}

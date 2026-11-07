@@ -71,3 +71,11 @@ Ayrıntılı kullanıcı ve yönetici adımları, ders teslimi için ayrıca haz
 ## Proje türü
 
 Bilgisayar mühendisliği kapsamında geliştirilmiş eğitim ve portföy amaçlı WordPress projesi.
+
+
+## 📘 Sistem Kullanım Kitapçığı
+
+Boss Gym Bursa sisteminin kurulumu, üyelik işlemleri, PT randevuları, saha rezervasyonları, QR turnike ve yönetici panelinin kullanımı ayrıntılı olarak açıklanmıştır.
+
+📂 [Kullanım Kitapçığını Görüntüle (PDF ve Word)](docs/)
+  
